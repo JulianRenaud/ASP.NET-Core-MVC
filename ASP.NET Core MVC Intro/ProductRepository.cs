@@ -50,5 +50,12 @@ namespace ASP.NET_Core_MVC_Intro
             product.Categories = categoryList;
             return product;
         }
+
+        public void DeleteProduct(Product product)
+        {
+            _connection.Execute("DELETE FROM REVIEWS WHERE ProductID = @id;", new { id = product.ProductID });
+            _connection.Execute("DELETE FROM Sales WHERE ProductID = @id;", new { id = product.ProductID });
+            _connection.Execute("DELETE FROM Products WHERE ProductID = @id;", new { id = product.ProductID });
+        }
     }
 }

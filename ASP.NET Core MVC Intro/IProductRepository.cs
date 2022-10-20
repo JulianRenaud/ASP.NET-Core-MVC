@@ -10,5 +10,6 @@ namespace ASP.NET_Core_MVC_Intro
         public void InsertProduct(Product productToInsert);
         public IEnumerable<Category> GetCategories();
         public Product AssignCategory();
+        public void DeleteProduct(Product product);
     }
 }

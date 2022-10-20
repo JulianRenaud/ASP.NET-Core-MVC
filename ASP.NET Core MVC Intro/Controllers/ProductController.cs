@@ -19,6 +19,12 @@ namespace ASP.NET_Core_MVC_Intro.Controllers
             return View(products);
         }
 
-        
+        public IActionResult ViewProduct(int id)
+        {
+            var product = _productrepository.GetProduct(id);
+            return View(product);
+        }
+
+
     }
 }

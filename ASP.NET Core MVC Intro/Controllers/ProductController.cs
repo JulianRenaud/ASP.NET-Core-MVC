@@ -41,6 +41,17 @@ namespace ASP.NET_Core_MVC_Intro.Controllers
 
             return RedirectToAction("ViewProduct", new { id = product.ProductID });
         }
-        
+
+        public IActionResult InsertProduct()
+        {
+            var prod = _productrepository.AssignCategory();
+            return View(prod);
+        }
+        public IActionResult InsertProductToDatabase(Product productToInsert)
+        {
+            _productrepository.InsertProduct(productToInsert);
+            return RedirectToAction("Index");
+        }
+
     }
 }

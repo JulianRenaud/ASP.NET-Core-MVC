@@ -23,5 +23,11 @@ namespace ASP.NET_Core_MVC_Intro
             return _connection.QuerySingle<Product>
                 ("SELECT * FROM products WHERE ProductID = @id", new { id = id });
         }
+
+        public void UpdateProduct(Product product)
+        {
+            _connection.Execute("UPDATE products SET Name = @name, Price = @price WHERE ProductID = @id",
+            new { name = product.Name, price = product.Price, id = product.ProductID });
+        }
     }
 }
